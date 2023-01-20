@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bchelste blog</title>
+	<style>
+		.redtext {
+			color: red;
+		}
+		</style>
+</head>
+<body>
+	<h1>bchelste blog</h1>
+	<h1 class="redtext">Admin mode</h1>
+	<img src="utils/amazing_logo.png" alt="logo">
+	<br> 
+	<a href="/new_post">New POST</a>
+	<a href="/">Back</a>
+<table class="table">
+	<thead class="thead-dark">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Content</th>
+		<th>View</th>
+		<th>Edit</th>
+		<th>Remove</th>
+	</tr>
+	<hr style="border: 2px solid blue;">
+	</thead>
+	<tbody>
+		{{ range .Posts }}
+		  <tr>
+			  <th scope="col">{{ .Id }}</th>
+			  <th scope="col"> {{ .Title }} </th>
+			  <th scope="col"> {{ .Content }} </th>
+			  <th scope="col"><a href="/article?id={{ .Id }}">View</a></th>
+			  <th scope="col"><a href="/edit?id={{ .Id }}">Edit</a></th>
+			  <th scope="col"><a href="/remove_post?id={{ .Id }}">Remove</a><td>
+		  </tr>
+		{{else}}
+			<b>This blog is empty</b>
+		{{ end }}
+	</tbody>
+</table>
+
+
+</body>
+</html>
